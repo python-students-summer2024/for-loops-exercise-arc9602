@@ -78,6 +78,20 @@ def draw_square(t, start_x, start_y, length, rotation_direction, fill_color):
     :param rotation_direction: Either 'left' or 'right', indicating the direction the turtle should rotate after it completes each line of the rectangle.
     :param fill_color: The color with which to fill in the area drawn by the turtle.
     """
+    pick_up_and_move_turtle(t,start_x,start_y)
+    if rotation_direction == "left":
+        t.left(90)
+    else: 
+        t.right(90)
+    sides = 0
+    t.fillcolor(fill_color)
+    t.begin_fill()
+    for sides in range(0,4):
+        t.forward(length)
+        t.left(90)
+        sides = sides + 1
+    t.end_fill()
+
 
 
 def draw_star(
@@ -100,3 +114,17 @@ def draw_star(
     :param initial_rotation_direction: The direction of the first rotation the turtle should make when drawing each point, either 'left' or 'right'.
     :param fill_color: The color with which to fill in the area drawn by the turtle.
     """
+    pick_up_and_move_turtle(t,start_x,start_y)
+    if initial_rotation_direction == "right":
+        t.left(-90)
+    else:
+        t.right(90)
+    i = 0
+    t.fillcolor(fill_color)
+    t.begin_fill()
+    for i in range(0,5):
+        t.forward(length)
+        t.left(144)
+        i = i + 1
+    t.end_fill()
+
